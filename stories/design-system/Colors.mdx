@@ -1,0 +1,111 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+
+<Meta title="Design System/Colors" />
+
+# Color Palette
+
+Bu sayfada UI Kit'imizin renk paletini bulabilirsiniz.
+
+## Primary Colors
+
+Ana marka renklerimiz:
+
+<ColorPalette>
+  <ColorItem
+    title="Primary"
+    subtitle="Ana marka rengi"
+    colors={{
+      50: '#f0f9ff',
+      100: '#e0f2fe',
+      200: '#bae6fd',
+      300: '#7dd3fc',
+      400: '#38bdf8',
+      500: '#0ea5e9',
+      600: '#0284c7',
+      700: '#0369a1',
+      800: '#075985',
+      900: '#0c4a6e',
+    }}
+  />
+</ColorPalette>
+
+## Secondary Colors
+
+Yardımcı renkler:
+
+<ColorPalette>
+  <ColorItem
+    title="Secondary"
+    subtitle="Gri tonları"
+    colors={{
+      50: '#f8fafc',
+      100: '#f1f5f9',
+      200: '#e2e8f0',
+      300: '#cbd5e1',
+      400: '#94a3b8',
+      500: '#64748b',
+      600: '#475569',
+      700: '#334155',
+      800: '#1e293b',
+      900: '#0f172a',
+    }}
+  />
+</ColorPalette>
+
+## Status Colors
+
+Durum belirten renkler:
+
+<ColorPalette>
+  <ColorItem
+    title="Success"
+    subtitle="Başarı durumu"
+    colors={{
+      50: '#f0fdf4',
+      100: '#dcfce7',
+      500: '#22c55e',
+      600: '#16a34a',
+      900: '#14532d',
+    }}
+  />
+  <ColorItem
+    title="Warning"
+    subtitle="Uyarı durumu"
+    colors={{
+      50: '#fffbeb',
+      100: '#fef3c7',
+      500: '#f59e0b',
+      600: '#d97706',
+      900: '#78350f',
+    }}
+  />
+  <ColorItem
+    title="Error"
+    subtitle="Hata durumu"
+    colors={{
+      50: '#fef2f2',
+      100: '#fee2e2',
+      500: '#ef4444',
+      600: '#dc2626',
+      900: '#7f1d1d',
+    }}
+  />
+</ColorPalette>
+
+## Usage Examples
+
+### Backgrounds
+- `bg-white` - Ana arka plan
+- `bg-secondary-50` - Hafif gri arka plan
+- `bg-primary-500` - Birincil arka plan
+
+### Text Colors
+- `text-secondary-900` - Ana metin
+- `text-secondary-600` - Yardımcı metin
+- `text-primary-600` - Vurgulu metin
+
+### Border Colors
+- `border-secondary-200` - Varsayılan border
+- `border-primary-300` - Vurgulu border
+
+
