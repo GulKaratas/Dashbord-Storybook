@@ -1,7 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
-import { Button } from "../../src/components/ui/Button";
-import { Plus, Download, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/Button";
+import {
+  Plus,
+  Download,
+  ArrowRight,
+  Settings,
+  Edit,
+  Eye,
+  Trash2,
+} from "lucide-react";
 
 const meta = {
   title: "UI Components/Button",
@@ -43,7 +50,6 @@ const meta = {
       description: "Pasif durumu",
     },
   },
-  args: { onClick: fn() },
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -75,7 +81,7 @@ export const Sizes: Story = {
       <Button size="default">Default</Button>
       <Button size="lg">Large</Button>
       <Button size="icon">
-        <Plus className="h-4 w-4" />
+        <Settings className="h-4 w-4" />
       </Button>
     </div>
   ),
@@ -165,5 +171,21 @@ export const InvoiceButton: Story = {
       <Plus className="h-4 w-4 mr-2" />
       New Invoice
     </Button>
+  ),
+};
+
+export const TableActions: Story = {
+  render: () => (
+    <div className="flex gap-1">
+      <Button size="sm" variant="ghost">
+        <Eye className="h-4 w-4" />
+      </Button>
+      <Button size="sm" variant="ghost">
+        <Edit className="h-4 w-4" />
+      </Button>
+      <Button size="sm" variant="ghost">
+        <Trash2 className="h-4 w-4" />
+      </Button>
+    </div>
   ),
 };

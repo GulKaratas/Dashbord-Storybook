@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { AnalyticsWidget } from "../../src/components/dashboard/AnalyticsWidget";
+import { AnalyticsWidget } from "@/components/dashboard/AnalyticsWidget";
 import {
   DollarSign,
   Users,
@@ -194,6 +194,3 @@ export const EcommerceMetrics: Story = {
     period: "E-commerce Overview",
   },
 };
-
-
-

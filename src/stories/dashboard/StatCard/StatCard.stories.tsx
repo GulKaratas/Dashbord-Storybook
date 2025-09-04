@@ -1,92 +1,114 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { StatCard } from '../../src/components/dashboard/StatCard'
-import { Users, ShoppingCart, TrendingUp, DollarSign, FileText, Clock } from 'lucide-react'
+import type { Meta, StoryObj } from "@storybook/react";
+import { StatCard } from "@/components/dashboard/StatCard";
+import {
+  Users,
+  ShoppingCart,
+  TrendingUp,
+  DollarSign,
+  FileText,
+  Clock,
+} from "lucide-react";
 
 const meta = {
-  title: 'Dashboard/StatCard',
+  title: "Dashboard/StatCard",
   component: StatCard,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
-        component: 'Dashboard istatistik kartları. İkon, trend ve değer gösterimi ile.',
+        component:
+          "Dashboard istatistik kartları. İkon, trend ve değer gösterimi ile.",
       },
     },
   },
-  tags: ['autodocs'],
-} satisfies Meta<typeof StatCard>
+  tags: ["autodocs"],
+} satisfies Meta<typeof StatCard>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    title: 'Total Users',
-    value: '1,234',
+    title: "Total Users",
+    value: "1,234",
   },
-}
+};
 
 export const WithIcon: Story = {
   args: {
-    title: 'Total Users',
-    value: '1,234',
+    title: "Total Users",
+    value: "1,234",
     icon: <Users className="h-6 w-6" />,
   },
-}
+};
 
 export const WithPositiveTrend: Story = {
   args: {
-    title: 'Total Revenue',
-    value: '$24,500',
+    title: "Total Revenue",
+    value: "$24,500",
     icon: <DollarSign className="h-6 w-6" />,
     trend: {
       value: 12,
       isPositive: true,
     },
   },
-}
+};
 
 export const WithNegativeTrend: Story = {
   args: {
-    title: 'Bounce Rate',
-    value: '2.4%',
+    title: "Bounce Rate",
+    value: "2.4%",
     icon: <TrendingUp className="h-6 w-6" />,
     trend: {
       value: 5,
       isPositive: false,
     },
   },
-}
+};
 
 export const InvoiceDashboard: Story = {
+  args: {
+    title: "Dashboard",
+    value: "Overview"
+  },
   render: () => (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl">
       <StatCard
         title="Clients Added"
         value="100"
-        icon={<div className="w-8 h-8 bg-yellow-100 rounded flex items-center justify-center">
-          <div className="w-4 h-4 bg-yellow-400 rounded" />
-        </div>}
+        icon={
+          <div className="w-8 h-8 bg-yellow-100 rounded flex items-center justify-center">
+            <div className="w-4 h-4 bg-yellow-400 rounded" />
+          </div>
+        }
       />
       <StatCard
         title="Contracts Signed"
         value="10"
-        icon={<div className="w-8 h-8 bg-yellow-100 rounded flex items-center justify-center">
-          <div className="w-4 h-4 bg-yellow-400 rounded" />
-        </div>}
+        icon={
+          <div className="w-8 h-8 bg-yellow-100 rounded flex items-center justify-center">
+            <div className="w-4 h-4 bg-yellow-400 rounded" />
+          </div>
+        }
       />
       <StatCard
         title="Invoices Sent"
         value="3"
-        icon={<div className="w-8 h-8 bg-yellow-100 rounded flex items-center justify-center">
-          <div className="w-4 h-4 bg-yellow-400 rounded" />
-        </div>}
+        icon={
+          <div className="w-8 h-8 bg-yellow-100 rounded flex items-center justify-center">
+            <div className="w-4 h-4 bg-yellow-400 rounded" />
+          </div>
+        }
       />
     </div>
   ),
-}
+};
 
 export const BusinessMetrics: Story = {
+  args: {
+    title: "Metrics",
+    value: "Overview"
+  },
   render: () => (
     <div className="grid grid-cols-2 gap-4 w-full max-w-2xl">
       <StatCard
@@ -115,9 +137,13 @@ export const BusinessMetrics: Story = {
       />
     </div>
   ),
-}
+};
 
 export const LargeNumbers: Story = {
+  args: {
+    title: "Numbers",
+    value: "Large"
+  },
   render: () => (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-xl">
       <StatCard
@@ -134,8 +160,4 @@ export const LargeNumbers: Story = {
       />
     </div>
   ),
-}
-
-
-
-
+};

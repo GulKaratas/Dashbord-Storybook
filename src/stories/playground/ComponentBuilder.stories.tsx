@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import { Button } from "../../src/components/ui/Button";
-import { Input } from "../../src/components/ui/Input";
-import { Card, CardContent, CardHeader, CardTitle } from "../../src/components/ui/Card";
-import { Badge } from "../../src/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
 
 const meta = {
   title: "Playground/Component Builder",
@@ -22,13 +22,20 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const InteractivePlayground: Story = {
+  args: {},
   render: () => {
     const [buttonText, setButtonText] = useState("Click Me");
-    const [buttonVariant, setButtonVariant] = useState<'default' | 'secondary' | 'outline' | 'destructive' | 'ghost' | 'link'>('default');
-    const [buttonSize, setButtonSize] = useState<'default' | 'sm' | 'lg' | 'icon'>('default');
+    const [buttonVariant, setButtonVariant] = useState<
+      "default" | "secondary" | "outline" | "destructive" | "ghost" | "link"
+    >("default");
+    const [buttonSize, setButtonSize] = useState<
+      "default" | "sm" | "lg" | "icon"
+    >("default");
     const [inputValue, setInputValue] = useState("");
     const [badgeText, setBadgeText] = useState("Status");
-    const [badgeVariant, setBadgeVariant] = useState<'default' | 'secondary' | 'success' | 'warning' | 'error' | 'info'>('default');
+    const [badgeVariant, setBadgeVariant] = useState<
+      "default" | "secondary" | "success" | "warning" | "error" | "info"
+    >("default");
 
     return (
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -51,8 +58,10 @@ export const InteractivePlayground: Story = {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-1">Variant</label>
-                  <select 
+                  <label className="block text-sm font-medium mb-1">
+                    Variant
+                  </label>
+                  <select
                     className="w-full p-2 border border-secondary-300 rounded-md"
                     value={buttonVariant}
                     onChange={(e) => setButtonVariant(e.target.value as any)}
@@ -67,7 +76,7 @@ export const InteractivePlayground: Story = {
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-1">Size</label>
-                  <select 
+                  <select
                     className="w-full p-2 border border-secondary-300 rounded-md"
                     value={buttonSize}
                     onChange={(e) => setButtonSize(e.target.value as any)}
@@ -94,8 +103,10 @@ export const InteractivePlayground: Story = {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-1">Variant</label>
-                  <select 
+                  <label className="block text-sm font-medium mb-1">
+                    Variant
+                  </label>
+                  <select
                     className="w-full p-2 border border-secondary-300 rounded-md"
                     value={badgeVariant}
                     onChange={(e) => setBadgeVariant(e.target.value as any)}
@@ -135,8 +146,8 @@ export const InteractivePlayground: Story = {
             <div>
               <h4 className="font-semibold mb-3">Your Button</h4>
               <div className="p-4 border border-secondary-200 rounded-lg bg-secondary-50">
-                <Button 
-                  variant={buttonVariant} 
+                <Button
+                  variant={buttonVariant}
                   size={buttonSize}
                   onClick={() => alert(`Button clicked: ${buttonText}`)}
                 >
@@ -144,19 +155,21 @@ export const InteractivePlayground: Story = {
                 </Button>
               </div>
               <div className="mt-2 p-3 bg-secondary-900 text-white rounded text-sm font-mono">
-                {`<Button variant="${buttonVariant}" size="${buttonSize}">\n  ${buttonText}\n</Button>`}
+                {`<Button variant="${buttonVariant}" size="${buttonSize}">
+  ${buttonText}
+</Button>`}
               </div>
             </div>
 
             <div>
               <h4 className="font-semibold mb-3">Your Badge</h4>
               <div className="p-4 border border-secondary-200 rounded-lg bg-secondary-50">
-                <Badge variant={badgeVariant}>
-                  {badgeText}
-                </Badge>
+                <Badge variant={badgeVariant}>{badgeText}</Badge>
               </div>
               <div className="mt-2 p-3 bg-secondary-900 text-white rounded text-sm font-mono">
-                {`<Badge variant="${badgeVariant}">\n  ${badgeText}\n</Badge>`}
+                {`<Badge variant="${badgeVariant}">
+  ${badgeText}
+</Badge>`}
               </div>
             </div>
 
@@ -179,6 +192,4 @@ export const InteractivePlayground: Story = {
     );
   },
 };
-
-
 

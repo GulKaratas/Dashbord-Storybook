@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { NotificationCenter } from "../../src/components/dashboard/NotificationCenter";
+import { NotificationCenter } from "@/components/dashboard/NotificationCenter";
 
 const meta = {
   title: "Dashboard/NotificationCenter",
@@ -76,24 +76,6 @@ export const ManyNotifications: Story = {
         read: true,
         actionRequired: false,
       },
-      {
-        id: "6",
-        type: "warning",
-        title: "Subscription Expiring",
-        message: "Your premium plan expires in 5 days",
-        timestamp: "3 days ago",
-        read: false,
-        actionRequired: true,
-      },
-      {
-        id: "7",
-        type: "info",
-        title: "System Update",
-        message: "New features have been added to your dashboard",
-        timestamp: "1 week ago",
-        read: true,
-        actionRequired: false,
-      },
     ],
   },
 };
@@ -125,15 +107,6 @@ export const HighPriorityNotifications: Story = {
         title: "Account Limit Reached",
         message: "You've reached 90% of your monthly invoice limit",
         timestamp: "30 minutes ago",
-        read: false,
-        actionRequired: true,
-      },
-      {
-        id: "4",
-        type: "warning",
-        title: "Overdue Invoice",
-        message: "Invoice INV098 is now 30 days overdue",
-        timestamp: "2 hours ago",
         read: false,
         actionRequired: true,
       },
@@ -171,18 +144,6 @@ export const SuccessNotifications: Story = {
         read: true,
         actionRequired: false,
       },
-      {
-        id: "4",
-        type: "success",
-        title: "Client Upgraded",
-        message: "Acme Corp upgraded to premium plan",
-        timestamp: "2 days ago",
-        read: true,
-        actionRequired: false,
-      },
     ],
   },
 };
-
-
-

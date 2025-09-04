@@ -1,5 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Badge } from "../../src/components/ui/Badge";
+import { Badge } from "@/components/ui/Badge";
+import {
+  CheckCircle,
+  XCircle,
+  AlertTriangle,
+  Info as InfoIcon,
+} from "lucide-react";
 
 const meta = {
   title: "UI Components/Badge",
@@ -95,6 +101,57 @@ export const StatusBadges: Story = {
   ),
 };
 
+export const WithIcons: Story = {
+  render: () => (
+    <div className="flex gap-2 flex-wrap">
+      <Badge variant="success" className="gap-1">
+        <CheckCircle className="h-3 w-3" />
+        Completed
+      </Badge>
+      <Badge variant="error" className="gap-1">
+        <XCircle className="h-3 w-3" />
+        Failed
+      </Badge>
+      <Badge variant="warning" className="gap-1">
+        <AlertTriangle className="h-3 w-3" />
+        Pending
+      </Badge>
+      <Badge variant="info" className="gap-1">
+        <InfoIcon className="h-3 w-3" />
+        Info
+      </Badge>
+    </div>
+  ),
+};
+
+export const NotificationBadges: Story = {
+  render: () => (
+    <div className="flex gap-4 items-center">
+      <div className="relative">
+        <button className="p-2 bg-gray-100 rounded-lg">📧</button>
+        <Badge
+          variant="error"
+          size="sm"
+          className="absolute -top-1 -right-1 min-w-[1.25rem] h-5 flex items-center justify-center text-xs"
+        >
+          3
+        </Badge>
+      </div>
+
+      <div className="relative">
+        <button className="p-2 bg-gray-100 rounded-lg">🔔</button>
+        <Badge
+          variant="warning"
+          size="sm"
+          className="absolute -top-1 -right-1 min-w-[1.25rem] h-5 flex items-center justify-center text-xs"
+        >
+          12
+        </Badge>
+      </div>
+    </div>
+  ),
+};
+
 export const Secondary: Story = {
   args: {
     variant: "secondary",
@@ -130,13 +187,6 @@ export const Info: Story = {
   },
 };
 
-export const Destructive: Story = {
-  args: {
-    variant: "error",
-    children: "Destructive",
-  },
-};
-
 export const Small: Story = {
   args: {
     size: "sm",
@@ -156,32 +206,4 @@ export const Large: Story = {
     size: "lg",
     children: "Large",
   },
-};
-
-export const NotificationBadges: Story = {
-  render: () => (
-    <div className="flex gap-4 items-center">
-      <div className="relative">
-        <button className="p-2 bg-gray-100 rounded-lg">📧</button>
-        <Badge
-          variant="error"
-          size="sm"
-          className="absolute -top-1 -right-1 min-w-[1.25rem] h-5 flex items-center justify-center text-xs"
-        >
-          3
-        </Badge>
-      </div>
-
-      <div className="relative">
-        <button className="p-2 bg-gray-100 rounded-lg">🔔</button>
-        <Badge
-          variant="warning"
-          size="sm"
-          className="absolute -top-1 -right-1 min-w-[1.25rem] h-5 flex items-center justify-center text-xs"
-        >
-          12
-        </Badge>
-      </div>
-    </div>
-  ),
 };

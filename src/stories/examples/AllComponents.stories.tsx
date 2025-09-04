@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from "../../src/components/ui/Button";
-import { Input } from "../../src/components/ui/Input";
-import { Card, CardContent, CardHeader, CardTitle } from "../../src/components/ui/Card";
-import { Badge } from "../../src/components/ui/Badge";
-import { StatCard } from "../../src/components/dashboard/StatCard";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { StatCard } from "@/components/dashboard/StatCard";
 import { Search, Plus, Users, DollarSign, Mail, User } from "lucide-react";
 
 const meta = {
@@ -23,6 +23,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const ComponentLibraryShowcase: Story = {
+  args: {},
   render: () => (
     <div className="space-y-8 max-w-6xl">
       {/* Header */}
@@ -53,10 +54,11 @@ export const ComponentLibraryShowcase: Story = {
           <div>
             <h4 className="font-semibold mb-3">With Icons</h4>
             <div className="flex gap-3 flex-wrap">
-              <Button leftIcon={<Plus className="h-4 w-4" />}>
-                Add New
-              </Button>
-              <Button variant="outline" rightIcon={<Search className="h-4 w-4" />}>
+              <Button leftIcon={<Plus className="h-4 w-4" />}>Add New</Button>
+              <Button
+                variant="outline"
+                rightIcon={<Search className="h-4 w-4" />}
+              >
                 Search
               </Button>
             </div>
@@ -83,14 +85,14 @@ export const ComponentLibraryShowcase: Story = {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium mb-1">Name</label>
-              <Input 
+              <Input
                 placeholder="Enter your name"
                 leftIcon={<User className="h-4 w-4" />}
               />
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">Email</label>
-              <Input 
+              <Input
                 type="email"
                 placeholder="your@email.com"
                 leftIcon={<Mail className="h-4 w-4" />}
@@ -98,14 +100,16 @@ export const ComponentLibraryShowcase: Story = {
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">Search</label>
-              <Input 
+              <Input
                 placeholder="Search invoices..."
                 leftIcon={<Search className="h-4 w-4" />}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-1">Error State</label>
-              <Input 
+              <label className="block text-sm font-medium mb-1">
+                Error State
+              </label>
+              <Input
                 placeholder="This field has an error"
                 error="This field is required"
                 leftIcon={<User className="h-4 w-4" />}
@@ -130,7 +134,7 @@ export const ComponentLibraryShowcase: Story = {
               <Badge variant="info">Processing</Badge>
             </div>
           </div>
-          
+
           <div>
             <h4 className="font-semibold mb-3">User Roles</h4>
             <div className="flex gap-2 flex-wrap">
@@ -175,7 +179,7 @@ export const ComponentLibraryShowcase: Story = {
         <CardContent>
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-4">
-              <Input 
+              <Input
                 placeholder="Search..."
                 leftIcon={<Search className="h-4 w-4" />}
                 className="w-64"
@@ -184,12 +188,10 @@ export const ComponentLibraryShowcase: Story = {
             </div>
             <div className="flex gap-2">
               <Button variant="outline">Filter</Button>
-              <Button leftIcon={<Plus className="h-4 w-4" />}>
-                Add New
-              </Button>
+              <Button leftIcon={<Plus className="h-4 w-4" />}>Add New</Button>
             </div>
           </div>
-          
+
           <div className="text-center py-8 text-secondary-500">
             <p>Content area with proper spacing and alignment</p>
           </div>
@@ -200,13 +202,14 @@ export const ComponentLibraryShowcase: Story = {
 };
 
 export const DarkThemeExample: Story = {
+  args: {},
   parameters: {
-    backgrounds: { default: 'dark' },
+    backgrounds: { default: "dark" },
   },
   render: () => (
     <div className="space-y-6 p-6 bg-secondary-900 text-white min-h-screen">
       <h2 className="text-2xl font-bold">Dark Theme Example</h2>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card className="bg-secondary-800 border-secondary-700">
           <CardHeader>
@@ -222,7 +225,7 @@ export const DarkThemeExample: Story = {
             </div>
           </CardContent>
         </Card>
-        
+
         <div className="space-y-4">
           <Input placeholder="Dark theme input" />
           <div className="flex gap-2">
@@ -235,6 +238,4 @@ export const DarkThemeExample: Story = {
     </div>
   ),
 };
-
-
 

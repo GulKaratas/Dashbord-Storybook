@@ -1,25 +1,25 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../../src/components/ui/Card'
-import { Button } from '../../src/components/ui/Button'
-import { Badge } from '../../src/components/ui/Badge'
-import { MoreHorizontal, TrendingUp, Users, DollarSign } from 'lucide-react'
+import type { Meta, StoryObj } from "@storybook/react";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
+import { Badge } from "@/components/ui/Badge";
+import { MoreHorizontal, TrendingUp, Users, DollarSign, Star } from "lucide-react";
 
 const meta = {
-  title: 'UI Components/Card',
+  title: "UI Components/Card",
   component: Card,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
-        component: 'Esnek card komponenti. Başlık, içerik ve footer bölümleri ile.',
+        component: "Esnek card komponenti. Başlık, içerik ve footer bölümleri ile.",
       },
     },
   },
-  tags: ['autodocs'],
-} satisfies Meta<typeof Card>
+  tags: ["autodocs"],
+} satisfies Meta<typeof Card>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
@@ -38,7 +38,7 @@ export const Default: Story = {
       </CardFooter>
     </Card>
   ),
-}
+};
 
 export const StatsCards: Story = {
   render: () => (
@@ -98,7 +98,7 @@ export const StatsCards: Story = {
       </Card>
     </div>
   ),
-}
+};
 
 export const PaymentCard: Story = {
   render: () => (
@@ -126,7 +126,7 @@ export const PaymentCard: Story = {
       </CardContent>
     </Card>
   ),
-}
+};
 
 export const SimpleCard: Story = {
   render: () => (
@@ -137,8 +137,38 @@ export const SimpleCard: Story = {
       </p>
     </Card>
   ),
-}
+};
 
-
-
-
+export const UserCard: Story = {
+  render: () => (
+    <Card className="w-80">
+      <CardHeader className="text-center">
+        <div className="mx-auto h-16 w-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white font-semibold text-lg mb-4">
+          JD
+        </div>
+        <CardTitle>John Doe</CardTitle>
+        <CardDescription>Senior Frontend Developer</CardDescription>
+      </CardHeader>
+      <CardContent className="text-center space-y-4">
+        <div className="flex justify-center gap-2">
+          <Badge variant="secondary">React</Badge>
+          <Badge variant="secondary">TypeScript</Badge>
+          <Badge variant="secondary">Next.js</Badge>
+        </div>
+        <div className="flex justify-center gap-1">
+          {[1, 2, 3, 4, 5].map((star) => (
+            <Star key={star} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+          ))}
+        </div>
+      </CardContent>
+      <CardFooter className="flex gap-2">
+        <Button size="sm" variant="outline" className="flex-1">
+          Message
+        </Button>
+        <Button size="sm" className="flex-1">
+          View Profile
+        </Button>
+      </CardFooter>
+    </Card>
+  ),
+};

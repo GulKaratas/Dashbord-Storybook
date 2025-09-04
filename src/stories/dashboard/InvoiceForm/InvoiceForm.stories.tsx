@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import { InvoiceForm } from "../../src/components/dashboard/InvoiceForm";
-import { Button } from "../../src/components/ui/Button";
+import { InvoiceForm } from "@/components/dashboard/InvoiceForm";
+import { Button } from "@/components/ui/Button";
 
 const meta = {
   title: "Dashboard/InvoiceForm",
@@ -58,7 +58,3 @@ export const OpenByDefault: Story = {
     );
   },
 };
-
-
-
-

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { InvoiceTable } from "../../src/components/dashboard/InvoiceTable";
+import { InvoiceTable } from "@/components/dashboard/InvoiceTable";
 
 const mockInvoices = [
   {
@@ -106,6 +106,24 @@ export const MixedStatuses: Story = {
   ),
 };
 
+export const CompletedOnly: Story = {
+  args: {
+    invoices: mockInvoices.filter(invoice => invoice.status === "completed"),
+  },
+  render: (args) => (
+    <div className="max-w-6xl">
+      <InvoiceTable {...args} />
+    </div>
+  ),
+};
 
-
-
+export const PendingOnly: Story = {
+  args: {
+    invoices: mockInvoices.filter(invoice => invoice.status === "pending"),
+  },
+  render: (args) => (
+    <div className="max-w-6xl">
+      <InvoiceTable {...args} />
+    </div>
+  ),
+};

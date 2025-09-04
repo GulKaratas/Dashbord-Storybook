@@ -1,44 +1,44 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Input } from '../../src/components/ui/Input'
-import { Search, User, Mail, Lock, Phone, CreditCard } from 'lucide-react'
+import type { Meta, StoryObj } from "@storybook/react";
+import { Input } from "@/components/ui/Input";
+import { Search, User, Mail, Lock, Phone, CreditCard, Calendar, DollarSign } from "lucide-react";
 
 const meta = {
-  title: 'UI Components/Input',
+  title: "UI Components/Input",
   component: Input,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
-        component: 'Form input komponenti. Çeşitli ikonlar ve hata durumları destekler.',
+        component: "Form input komponenti. Çeşitli ikonlar ve hata durumları destekler.",
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     type: {
-      control: { type: 'select' },
-      options: ['text', 'email', 'password', 'number', 'search', 'tel'],
-      description: 'Input tipi',
+      control: { type: "select" },
+      options: ["text", "email", "password", "number", "search", "tel", "date"],
+      description: "Input tipi",
     },
     disabled: {
-      control: { type: 'boolean' },
-      description: 'Pasif durumu',
+      control: { type: "boolean" },
+      description: "Pasif durumu",
     },
     error: {
-      control: { type: 'text' },
-      description: 'Hata mesajı',
+      control: { type: "text" },
+      description: "Hata mesajı",
     },
   },
-} satisfies Meta<typeof Input>
+} satisfies Meta<typeof Input>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    placeholder: 'Enter text...',
+    placeholder: "Enter text...",
   },
-}
+};
 
 export const WithIcons: Story = {
   render: () => (
@@ -63,7 +63,7 @@ export const WithIcons: Story = {
       />
     </div>
   ),
-}
+};
 
 export const FormInputs: Story = {
   render: () => (
@@ -93,7 +93,7 @@ export const FormInputs: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const ErrorStates: Story = {
   render: () => (
@@ -111,7 +111,7 @@ export const ErrorStates: Story = {
       />
     </div>
   ),
-}
+};
 
 export const SearchBar: Story = {
   render: () => (
@@ -123,8 +123,49 @@ export const SearchBar: Story = {
       />
     </div>
   ),
-}
+};
 
+export const InvoiceForm: Story = {
+  render: () => (
+    <div className="space-y-4 w-80">
+      <div>
+        <label className="block text-sm font-medium mb-1">Client Name</label>
+        <Input
+          placeholder="Enter client name"
+          leftIcon={<User className="h-4 w-4" />}
+        />
+      </div>
+      <div>
+        <label className="block text-sm font-medium mb-1">Amount</label>
+        <Input
+          type="number"
+          placeholder="0.00"
+          leftIcon={<DollarSign className="h-4 w-4" />}
+        />
+      </div>
+      <div>
+        <label className="block text-sm font-medium mb-1">Due Date</label>
+        <Input
+          type="date"
+          leftIcon={<Calendar className="h-4 w-4" />}
+        />
+      </div>
+    </div>
+  ),
+};
 
+export const Disabled: Story = {
+  args: {
+    placeholder: "Disabled input",
+    disabled: true,
+    value: "Cannot edit this",
+  },
+};
 
-
+export const WithError: Story = {
+  args: {
+    placeholder: "Enter email",
+    value: "invalid-email",
+    error: "Please enter a valid email address",
+  },
+};
