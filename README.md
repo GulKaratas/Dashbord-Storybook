@@ -182,10 +182,3 @@ npm run lint         # ESLint kontrolü
 - **Tailwind CSS**: Utility-first CSS
 - **Lucide React**: İkon kütüphanesi
 
-## Lisans
-
-Bu proje MIT lisansı altında lisanslanmıştır.
-
----
-
-**🎉 Admin Dashboard UI Kit ile modern ve esnek dashboardlar oluşturun!**
